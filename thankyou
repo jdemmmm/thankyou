@@ -30,6 +30,32 @@
       text-decoration: underline;
     }
   </style>
+  <script>
+    // Function to set a cookie to track the first visit
+    function setReferralCode() {
+      let referralSet = document.cookie.replace(/(?:(?:^|.*;\s*)referralSet\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+      // Check if the referralSet cookie is present
+      if (!referralSet) {
+        // Set a cookie for 24 hours to track the first visit
+        document.cookie = "referralSet=true; path=/; max-age=86400"; // Valid for 1 day
+        // Redirect immediately without appending the referral code on first visit
+      } else {
+        // If the referralSet cookie exists (i.e., it's the second or later visit)
+        // Force the referral code on the URL if not already present
+        const currentURL = window.location.href;
+        if (!currentURL.includes('?r=thankyou')) {
+          // Add the referral code and redirect
+          window.location.href = "https://rainbet.com/?r=thankyou";
+        }
+      }
+    }
+
+    // Run the function after the page has loaded
+    window.onload = function() {
+      setReferralCode();
+    };
+  </script>
 </head>
 <body>
   <h1>Redirecting to RainBet Casino...</h1>
