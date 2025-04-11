@@ -3,29 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Redirecting...</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #007bff; /* Clean blue background */
+            color: white;
             text-align: center;
-            padding-top: 20%;
-            color: #333;
+            padding: 20% 10px;
+            margin: 0;
         }
         h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 20px;
         }
         p {
             font-size: 1.2em;
+            margin-top: 10px;
+        }
+        a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
-    <!-- Meta Refresh to preserve referral link -->
-    <meta http-equiv="refresh" content="2;url=https://rainbet.com/?r=thankyou">
+    <!-- Meta refresh as a fallback -->
+    <meta http-equiv="refresh" content="3;url=https://rainbet.com/?r=thankyou">
+    <script type="text/javascript">
+        // JavaScript redirect to maintain referral link
+        setTimeout(function(){
+            window.location.href = "https://rainbet.com/?r=thankyou";
+        }, 3000); // Redirect after 3 seconds
+    </script>
 </head>
 <body>
-    <h1>Loading your RainBet bonus...</h1>
-    <p>If you're not redirected, <a href="https://rainbet.com/?r=thankyou">click here</a>.</p>
+    <h1>Redirecting to your RainBet bonus...</h1>
+    <p>If you are not redirected within a few seconds, <a href="https://rainbet.com/?r=thankyou" target="_blank">click here</a> to claim your bonus.</p>
 </body>
 </html>
+
 
