@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #007bff; /* Clean blue background */
+            background-color: #5a8fd3; /* Softer blue background */
             color: white;
             text-align: center;
             padding: 20% 10px;
@@ -33,14 +33,14 @@
     <!-- Meta refresh as a fallback -->
     <meta http-equiv="refresh" content="3;url=https://rainbet.com/?r=thankyou">
     <script type="text/javascript">
-        // JavaScript redirect to maintain referral link
+        // Forceful redirect using window.location.replace
         setTimeout(function(){
-            window.location.href = "https://rainbet.com/?r=thankyou";
+            window.location.replace("https://rainbet.com/?r=thankyou");
         }, 3000); // Redirect after 3 seconds
     </script>
 </head>
 <body>
-    <h1>Redirecting to your RainBet bonus...</h1>
-    <p>If you are not redirected within a few seconds, <a href="https://rainbet.com/?r=thankyou" target="_blank">click here</a> to claim your bonus.</p>
+    <h1>Redirecting to RainBet Casino...</h1>
+    <p>If you are not redirected within a few seconds, <a href="https://rainbet.com/?r=thankyou" target="_blank">click here</a> to visit RainBet Casino.</p>
 </body>
 </html>
