@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="refresh" content="3;url=https://rainbet.com/?r=thankyou" />
   <title>Redirecting to RainBet</title>
   <style>
     body {
@@ -33,11 +34,5 @@
 <body>
   <h1>Redirecting to RainBet Casino...</h1>
   <p>If you are not redirected, <a href="https://rainbet.com/?r=thankyou" target="_blank">click here</a> to continue.</p>
-
-  <script>
-    setTimeout(() => {
-      window.location.href = "https://rainbet.com/?r=thankyou";
-    }, 3000);
-  </script>
 </body>
 </html>
