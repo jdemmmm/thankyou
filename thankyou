@@ -2,63 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="3;url=https://rainbet.com/?r=thankyou" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Redirecting to RainBet</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #2b4a78; /* Darker, eye-friendly blue */
+      background-color: #1a2b44;
       color: white;
       text-align: center;
       padding: 20% 10px;
       margin: 0;
     }
     h1 {
-      font-size: 2.5em;
+      font-size: 2.2em;
       margin-bottom: 20px;
     }
     p {
-      font-size: 1.2em;
+      font-size: 1.1em;
       margin-top: 10px;
     }
-    a {
-      color: #ffcc00;
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1.2em;
+      background-color: #ffcc00;
+      color: #1a2b44;
       text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
     }
-    a:hover {
-      text-decoration: underline;
+    a.button:hover {
+      background-color: #ffdb4d;
     }
   </style>
   <script>
-    // Function to set a cookie to track the first visit
-    function setReferralCode() {
-      let referralSet = document.cookie.replace(/(?:(?:^|.*;\s*)referralSet\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    function isMobile() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      return /android|iphone|ipad|ipod|windows phone|blackberry|mobile/i.test(ua);
+    }
 
-      // Check if the referralSet cookie is present
-      if (!referralSet) {
-        // Set a cookie for 24 hours to track the first visit
-        document.cookie = "referralSet=true; path=/; max-age=86400"; // Valid for 1 day
-        // Redirect immediately without appending the referral code on first visit
+    function redirectToRainbet() {
+      const referralURL = "https://rainbet.com/?r=thankyou";
+      const hasVisited = localStorage.getItem("rainbetReferralVisited");
+
+      if (!hasVisited) {
+        localStorage.setItem("rainbetReferralVisited", "true");
+        window.location.href = referralURL;
       } else {
-        // If the referralSet cookie exists (i.e., it's the second or later visit)
-        // Force the referral code on the URL if not already present
-        const currentURL = window.location.href;
-        if (!currentURL.includes('?r=thankyou')) {
-          // Add the referral code and redirect
-          window.location.href = "https://rainbet.com/?r=thankyou";
-        }
+        window.location.href = referralURL;
       }
     }
 
-    // Run the function after the page has loaded
-    window.onload = function() {
-      setReferralCode();
+    window.onload = function () {
+      if (isMobile()) {
+        setTimeout(redirectToRainbet, 500);
+      }
     };
   </script>
 </head>
 <body>
   <h1>Redirecting to RainBet Casino...</h1>
-  <p>If you are not redirected, <a href="https://rainbet.com/?r=thankyou" target="_blank">click here</a> to continue.</p>
+  <p>If you are not redirected automatically, tap the button below to continue:</p>
+  <a class="button" href="https://rainbet.com/?r=thankyou" target="_blank">Tap here to continue to RainBet</a>
 </body>
 </html>
