@@ -2,68 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecting to RainBet</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #1a2b44;
+      background-color: #2b4a78;
       color: white;
       text-align: center;
       padding: 20% 10px;
       margin: 0;
     }
     h1 {
-      font-size: 2.2em;
+      font-size: 2.5em;
       margin-bottom: 20px;
     }
     p {
-      font-size: 1.1em;
+      font-size: 1.2em;
       margin-top: 10px;
     }
-    a.button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      font-size: 1.2em;
-      background-color: #ffcc00;
-      color: #1a2b44;
+    a {
+      color: #ffcc00;
       text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
     }
-    a.button:hover {
-      background-color: #ffdb4d;
+    a:hover {
+      text-decoration: underline;
     }
   </style>
   <script>
-    function isMobile() {
-      const ua = navigator.userAgent || navigator.vendor || window.opera;
-      return /android|iphone|ipad|ipod|windows phone|blackberry|mobile/i.test(ua);
-    }
-
-    function redirectToRainbet() {
-      const referralURL = "https://rainbet.com/?r=thankyou";
-      const hasVisited = localStorage.getItem("rainbetReferralVisited");
-
-      if (!hasVisited) {
-        localStorage.setItem("rainbetReferralVisited", "true");
-        window.location.href = referralURL;
-      } else {
-        window.location.href = referralURL;
-      }
-    }
-
+    // Force fast redirect
     window.onload = function () {
-      if (isMobile()) {
-        setTimeout(redirectToRainbet, 500);
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      const url = "https://rainbet.com/?r=thankyou";
+      if (isMobile) {
+        window.location.replace(url);
+      } else {
+        // Optional: show a message or try fallback redirect
+        document.getElementById("fallback-link").style.display = "inline";
       }
     };
   </script>
 </head>
 <body>
   <h1>Redirecting to RainBet Casino...</h1>
-  <p>If you are not redirected automatically, tap the button below to continue:</p>
-  <a class="button" href="https://rainbet.com/?r=thankyou" target="_blank">Tap here to continue to RainBet</a>
+  <p id="fallback-link" style="display: none;">
+    If you're not on mobile, <a href="https://rainbet.com/?r=thankyou" target="_blank">click here</a> to continue.
+  </p>
 </body>
 </html>
